@@ -1,8 +1,8 @@
 package com.latmod.mods.projectex.integration.jei;
 
-import com.latmod.mods.projectex.gui.ButtonCreateItem;
-import com.latmod.mods.projectex.gui.ContainerArcaneTablet;
 import com.latmod.mods.projectex.gui.GuiArcaneTablet;
+import com.latmod.mods.projectex.gui.button.ButtonCreateItem;
+import com.latmod.mods.projectex.gui.container.ContainerArcaneTablet;
 import com.latmod.mods.projectex.net.MessageArcaneTableRecipeTransfer;
 import com.latmod.mods.projectex.net.ProjectEXNetHandler;
 import mezz.jei.api.gui.IAdvancedGuiHandler;

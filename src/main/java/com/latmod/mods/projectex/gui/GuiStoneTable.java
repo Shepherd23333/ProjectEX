@@ -2,6 +2,8 @@ package com.latmod.mods.projectex.gui;
 
 import com.latmod.mods.projectex.ProjectEX;
 import com.latmod.mods.projectex.ProjectEXConfig;
+import com.latmod.mods.projectex.gui.button.*;
+import com.latmod.mods.projectex.gui.container.ContainerStoneTable;
 import com.latmod.mods.projectex.integration.PersonalEMC;
 import moze_intel.projecte.api.ProjectEAPI;
 import moze_intel.projecte.utils.EMCFormat;

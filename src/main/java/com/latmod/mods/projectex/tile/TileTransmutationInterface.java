@@ -140,7 +140,7 @@ public class TileTransmutationInterface extends TileEntity implements IItemHandl
         int count = getCount(provider, slot - 1);
         if (count < 1)
             return ItemStack.EMPTY;
-        ItemStack item = stack[slot - 1];
+        ItemStack item = stack[slot - 1].copy();
         item.setCount(count);
         return item;
     }
@@ -183,7 +183,7 @@ public class TileTransmutationInterface extends TileEntity implements IItemHandl
         amount = Math.min(amount, getCount(provider, slot - 1));
         if (amount < 1)
             return ItemStack.EMPTY;
-        ItemStack item = stack[slot - 1];
+        ItemStack item = stack[slot - 1].copy();
         item.setCount(amount);
         if (simulate)
             return item;

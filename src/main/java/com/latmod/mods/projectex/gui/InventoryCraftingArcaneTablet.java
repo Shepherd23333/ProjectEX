@@ -1,5 +1,6 @@
 package com.latmod.mods.projectex.gui;
 
+import com.latmod.mods.projectex.gui.container.ContainerArcaneTablet;
 import net.minecraft.client.util.RecipeItemHelper;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;

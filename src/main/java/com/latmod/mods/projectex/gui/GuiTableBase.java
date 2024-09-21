@@ -3,6 +3,8 @@ package com.latmod.mods.projectex.gui;
 import com.latmod.mods.projectex.ProjectEXKeyBindings;
 import com.latmod.mods.projectex.ProjectEXUtils;
 import com.latmod.mods.projectex.client.ProjectEXClientConfig;
+import com.latmod.mods.projectex.gui.button.*;
+import com.latmod.mods.projectex.gui.container.ContainerTableBase;
 import com.latmod.mods.projectex.integration.jei.ProjectEXJEIIntegration;
 import com.latmod.mods.projectex.net.MessageCreateItemButton;
 import com.latmod.mods.projectex.net.ProjectEXNetHandler;
@@ -66,12 +68,13 @@ public abstract class GuiTableBase extends GuiContainer implements ContainerTabl
         }
 
         for (ItemStack stack : table.playerData.getKnowledge()) {
-            if (stack == null) {
+            if (stack.isEmpty()) {
                 continue;
             }
             if (table.isItemValid(stack) && (s.isEmpty() || mod
                     ? stack.getItem().getRegistryName().getNamespace().startsWith(s)
-                    : StringUtils.contains(trim(stack.getDisplayName()), s))) {
+                    : StringUtils.contains(trim(stack.getDisplayName()), s)
+            )) {
                 validItems.add(ProjectEXUtils.fixOutput(stack));
             }
         }

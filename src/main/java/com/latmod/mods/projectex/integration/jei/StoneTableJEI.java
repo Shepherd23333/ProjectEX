@@ -1,7 +1,7 @@
 package com.latmod.mods.projectex.integration.jei;
 
-import com.latmod.mods.projectex.gui.ButtonCreateItem;
 import com.latmod.mods.projectex.gui.GuiStoneTable;
+import com.latmod.mods.projectex.gui.button.ButtonCreateItem;
 import mezz.jei.api.gui.IAdvancedGuiHandler;
 import net.minecraft.client.gui.GuiButton;
 

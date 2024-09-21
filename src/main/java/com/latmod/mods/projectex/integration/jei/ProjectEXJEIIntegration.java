@@ -12,6 +12,7 @@ import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
+import moze_intel.projecte.integration.jei.collectors.CollectorRecipeCategory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -24,6 +25,16 @@ public class ProjectEXJEIIntegration implements IModPlugin {
 
     @Override
     public void register(IModRegistry registry) {
+        registry.addRecipeCatalyst(new ItemStack(ProjectEXItems.COLLECTOR_MK4), CollectorRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ProjectEXItems.COLLECTOR_MK5), CollectorRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ProjectEXItems.COLLECTOR_MK6), CollectorRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ProjectEXItems.COLLECTOR_MK7), CollectorRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ProjectEXItems.COLLECTOR_MK8), CollectorRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ProjectEXItems.COLLECTOR_MK9), CollectorRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ProjectEXItems.COLLECTOR_MK10), CollectorRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ProjectEXItems.COLLECTOR_MK11), CollectorRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ProjectEXItems.COLLECTOR_MK12), CollectorRecipeCategory.UID);
+
         registry.addGhostIngredientHandler(GuiLink.class, EMCLinkJEI.INSTANCE);
         registry.addAdvancedGuiHandlers(StoneTableJEI.INSTANCE, ArcaneTabletJEI.INSTANCE, EMCLinkJEI.INSTANCE);
         registry.addRecipeClickArea(GuiArcaneTablet.class, -60, 75, 33, 17, VanillaRecipeCategoryUid.CRAFTING);

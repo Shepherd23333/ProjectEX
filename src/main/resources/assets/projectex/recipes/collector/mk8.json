@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "projectex:collector",
+  "result": {
+    "item": "projectex:collector_mk8"
+  },
+  "pattern": [
+    "GDG",
+    "GCG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "type": "forge:ore_dict",
+      "ore": "glowstone"
+    },
+    "C": {
+      "item": "projectex:collector_mk7"
+    },
+    "D": {
+      "item": "projectex:matter",
+      "data": 4
+    }
+  }
+}

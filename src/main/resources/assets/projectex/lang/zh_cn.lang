@@ -30,11 +30,11 @@ tile.projectex.collector.yellow.name=黄物质收集器 [MK12]
 tile.projectex.collector.orange.name=橙物质收集器 [MK13]
 tile.projectex.collector.white.name=白物质收集器 [MK14]
 tile.projectex.collector.fading.name=渐消物质收集器 [MK15]
-
 tile.projectex.collector.final.name=终极收集器 [MK16]
+
 tile.projectex.collector.tooltip=对服务器TPS友好。1秒只生产一次EMC。
 tile.projectex.collector.emc_produced=提供EMC: %s/s
-tile.projectex.collector.compressed=压缩的合成材料
+tile.projectex.collector.compressed=压缩的合成材料（不是方块！）
 
 tile.projectex.relay.basic.name=基础继电器 [MK1]
 tile.projectex.relay.dark.name=暗物质继电器 [MK2]
@@ -51,8 +51,8 @@ tile.projectex.relay.yellow.name=黄物质继电器 [MK12]
 tile.projectex.relay.orange.name=橙物质继电器 [MK13]
 tile.projectex.relay.white.name=白物质继电器 [MK14]
 tile.projectex.relay.fading.name=渐消物质继电器 [MK15]
-
 tile.projectex.relay.final.name=终极继电器 [MK16]
+
 tile.projectex.relay.tooltip=对服务器TPS友好。1秒只传输一次EMC。
 tile.projectex.relay.max_transfer=最大EMC传输: %s/s
 tile.projectex.relay.relay_bonus=继电器加成: %s/s
@@ -72,13 +72,22 @@ tile.projectex.power_flower.yellow.name=黄物质力量之花盆栽 [MK12]
 tile.projectex.power_flower.orange.name=橙物质力量之花盆栽 [MK13]
 tile.projectex.power_flower.white.name=白物质力量之花盆栽 [MK14]
 tile.projectex.power_flower.fading.name=渐消物质力量之花盆栽 [MK15]
-
 tile.projectex.power_flower.final.name=终极力量之花盆栽 [MK16]
 
 tile.projectex.stone_table.name=石质转化桌
 tile.projectex.stone_table.learn=学习
 tile.projectex.stone_table.unlearn=遗忘
 tile.projectex.alchemy_table.name=炼金术桌
+
+tile.projectex.collector_mk4.name=能量收集器MK4
+tile.projectex.collector_mk5.name=能量收集器MK5
+tile.projectex.collector_mk6.name=能量收集器MK6
+tile.projectex.collector_mk7.name=能量收集器MK7
+tile.projectex.collector_mk8.name=能量收集器MK8
+tile.projectex.collector_mk9.name=能量收集器MK9
+tile.projectex.collector_mk10.name=能量收集器MK10
+tile.projectex.collector_mk11.name=能量收集器MK11
+tile.projectex.collector_mk12.name=能量收集器MK12
 
 item.projectex.magnum_star_ein.name=一级马格南能量之星
 item.projectex.magnum_star_zwei.name=二级马格南能量之星
@@ -92,6 +101,17 @@ item.projectex.colossal_star_drei.name=三级终焉能量之星
 item.projectex.colossal_star_vier.name=四级终焉能量之星
 item.projectex.colossal_star_sphere.name=五级终焉能量之星
 item.projectex.colossal_star_omega.name=六级终焉能量之星
+item.projectex.fuel.magenta.name=品红燃料
+item.projectex.fuel.pink.name=粉燃料
+item.projectex.fuel.purple.name=紫燃料
+item.projectex.fuel.violet.name=紫罗兰燃料
+item.projectex.fuel.blue.name=蓝燃料
+item.projectex.fuel.cyan.name=青燃料
+item.projectex.fuel.green.name=绿燃料
+item.projectex.fuel.lime.name=黄绿燃料
+item.projectex.fuel.yellow.name=黄燃料
+item.projectex.fuel.orange.name=橙燃料
+item.projectex.fuel.white.name=白燃料
 item.projectex.matter.magenta.name=品红物质
 item.projectex.matter.pink.name=粉物质
 item.projectex.matter.purple.name=紫物质
@@ -103,7 +123,6 @@ item.projectex.matter.lime.name=黄绿物质
 item.projectex.matter.yellow.name=黄物质
 item.projectex.matter.orange.name=橙物质
 item.projectex.matter.white.name=白物质
-item.projectex.matter.gray.name=Gray 物质
 item.projectex.matter.fading.name=渐消物质
 item.projectex.matter.clay.name=黏土物质
 item.projectex.final_star_shard.name=终极之星碎片

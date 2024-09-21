@@ -41,9 +41,8 @@ public class BlockAlchemyTable extends Block {
         if (!world.isRemote) {
             TileEntity tileEntity = world.getTileEntity(pos);
 
-            if (tileEntity instanceof TileAlchemyTable) {
+            if (tileEntity instanceof TileAlchemyTable)
                 ProjectEXGuiHandler.open(player, ProjectEXGuiHandler.ALCHEMY_TABLE, pos.getX(), pos.getY(), pos.getZ());
-            }
         }
 
         return true;

@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.Side;
         modid = ProjectEX.MOD_ID,
         name = ProjectEX.MOD_NAME,
         version = Tags.VERSION,
-        dependencies = "required-after:" + PECore.MODID
+        dependencies = "required-after:projecte@[2.0.0,)"
 )
 public class ProjectEX {
     public static final String MOD_ID = "projectex";

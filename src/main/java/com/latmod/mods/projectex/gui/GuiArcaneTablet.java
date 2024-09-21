@@ -3,6 +3,8 @@ package com.latmod.mods.projectex.gui;
 import com.latmod.mods.projectex.ProjectEX;
 import com.latmod.mods.projectex.client.EnumSearchType;
 import com.latmod.mods.projectex.client.ProjectEXClientConfig;
+import com.latmod.mods.projectex.gui.button.*;
+import com.latmod.mods.projectex.gui.container.ContainerArcaneTablet;
 import com.latmod.mods.projectex.integration.PersonalEMC;
 import moze_intel.projecte.utils.EMCFormat;
 import net.minecraft.client.gui.GuiButton;
@@ -58,24 +60,22 @@ public class GuiArcaneTablet extends GuiTableBase {
 
     @Override
     protected void actionPerformed(GuiButton button) throws IOException {
-        if (button.id == 6) {
+        if (button.id == 6)
             handleButton(isShiftKeyDown() ? 42 : 41);
-        } else if (button.id == 7) {
+        else if (button.id == 7)
             handleButton(isShiftKeyDown() ? 44 : 43);
-        } else if (button.id == 8) {
+        else if (button.id == 8) {
             ProjectEXClientConfig.general.search_type = EnumSearchType.VALUES[(ProjectEXClientConfig.general.search_type.ordinal() + 1) % EnumSearchType.VALUES.length];
             button.displayString = I18n.format("projectex.general.search_type") + ": " + TextFormatting.GRAY + I18n.format(ProjectEXClientConfig.general.search_type.translationKey);
-        } else if (button.id == 9) {
+        } else if (button.id == 9)
             handleButton(40);
-        } else {
+        else
             super.actionPerformed(button);
-        }
     }
 
     private void handleButton(int id) {
-        if (table.enchantItem(mc.player, id)) {
+        if (table.enchantItem(mc.player, id))
             mc.playerController.sendEnchantPacket(table.windowId, id);
-        }
     }
 
     @Override
@@ -97,9 +97,8 @@ public class GuiArcaneTablet extends GuiTableBase {
 
     @Override
     protected boolean hasClickedOutside(int mouseX, int mouseY, int x, int y) {
-        if (mouseX >= x - 75 && mouseY >= y + 10 && mouseX < x + 1 && mouseY < y + 99) {
+        if (mouseX >= x - 75 && mouseY >= y + 10 && mouseX < x + 1 && mouseY < y + 99)
             return false;
-        }
 
         return super.hasClickedOutside(mouseX, mouseY, x, y);
     }

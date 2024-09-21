@@ -2,6 +2,7 @@ package com.latmod.mods.projectex.gui;
 
 import com.latmod.mods.projectex.ProjectEX;
 import com.latmod.mods.projectex.client.ProjectEXClientEventHandler;
+import com.latmod.mods.projectex.gui.container.ContainerLink;
 import com.latmod.mods.projectex.integration.PersonalEMC;
 import com.latmod.mods.projectex.tile.TileLinkMK2;
 import com.latmod.mods.projectex.tile.TileLinkMK3;
@@ -31,26 +32,22 @@ public class GuiLink extends GuiContainer {
         super(c);
         container = c;
 
-        if (container.link instanceof TileLinkMK3) {
+        if (container.link instanceof TileLinkMK3)
             ySize = 244;
-        }
     }
 
     @Override
     public void initGui() {
         super.initGui();
 
-        if (container.link instanceof TileLinkMK3) {
-            for (int i = 0; i < 54; i++) {
+        if (container.link instanceof TileLinkMK3)
+            for (int i = 0; i < 54; i++)
                 buttonList.add(new ButtonFilter(i, guiLeft + 8 + (i % 9) * 18, guiTop + 41 + (i / 9) * 18));
-            }
-        } else if (container.link instanceof TileLinkMK2) {
-            for (int i = 0; i < 9; i++) {
+        else if (container.link instanceof TileLinkMK2)
+            for (int i = 0; i < 9; i++)
                 buttonList.add(new ButtonFilter(i, guiLeft + 89 + (i % 3) * 18, guiTop + 17 + (i / 3) * 18));
-            }
-        } else {
+        else
             buttonList.add(new ButtonFilter(0, guiLeft + 152, guiTop + 35));
-        }
     }
 
     @Override
@@ -58,9 +55,8 @@ public class GuiLink extends GuiContainer {
         if (button instanceof ButtonFilter) {
             int id = button.id + (isCtrlKeyDown() ? 2 : isShiftKeyDown() ? 1 : 0) * container.link.outputSlots.length;
 
-            if (container.enchantItem(container.player, id)) {
+            if (container.enchantItem(container.player, id))
                 mc.playerController.sendEnchantPacket(container.windowId, id);
-            }
         }
     }
 
@@ -75,26 +71,22 @@ public class GuiLink extends GuiContainer {
     public void renderHoveredToolTip(int x, int y) {
         super.renderHoveredToolTip(x, y);
 
-        for (GuiButton button : buttonList) {
-            if (button.isMouseOver() && button instanceof ButtonFilter) {
-                if (!container.link.outputSlots[button.id].isEmpty()) {
+        for (GuiButton button : buttonList)
+            if (button.isMouseOver() && button instanceof ButtonFilter)
+                if (!container.link.outputSlots[button.id].isEmpty())
                     renderToolTip(container.link.outputSlots[button.id], x, y);
-                }
-            }
-        }
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
         GlStateManager.color(1F, 1F, 1F, 1F);
 
-        if (container.link instanceof TileLinkMK3) {
+        if (container.link instanceof TileLinkMK3)
             mc.getTextureManager().bindTexture(TEXTURE_MK3);
-        } else if (container.link instanceof TileLinkMK2) {
+        else if (container.link instanceof TileLinkMK2)
             mc.getTextureManager().bindTexture(TEXTURE_MK2);
-        } else {
+        else
             mc.getTextureManager().bindTexture(TEXTURE_MK1);
-        }
 
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
     }
@@ -107,16 +99,15 @@ public class GuiLink extends GuiContainer {
 
         String s = EMCFormat.format(emc);
 
-        if (!ProjectEXClientEventHandler.emcs.equals(BigInteger.ZERO)) {
-            s += (ProjectEXClientEventHandler.emcs.compareTo(BigInteger.ZERO) > 0 ? (TextFormatting.DARK_GREEN + "+") : (TextFormatting.RED + "-")) +
-                    EMCFormat.format(ProjectEXClientEventHandler.emcs.abs()) + "/s";
-        }
+        if (!ProjectEXClientEventHandler.emcs.equals(BigInteger.ZERO))
+            s += (ProjectEXClientEventHandler.emcs.compareTo(BigInteger.ZERO) > 0
+                    ? (TextFormatting.DARK_GREEN + "+")
+                    : (TextFormatting.RED + "-")) + EMCFormat.format(ProjectEXClientEventHandler.emcs.abs()) + "/s";
 
-        if (container.link instanceof TileLinkMK3) {
+        if (container.link instanceof TileLinkMK3)
             fontRenderer.drawString(s, 8, 151, 4210752);
-        } else {
+        else
             fontRenderer.drawString(s, 8, 73, 4210752);
-        }
     }
 
     public List<GuiButton> getButtons() {

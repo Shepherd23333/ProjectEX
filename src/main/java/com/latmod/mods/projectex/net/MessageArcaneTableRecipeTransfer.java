@@ -1,6 +1,6 @@
 package com.latmod.mods.projectex.net;
 
-import com.latmod.mods.projectex.gui.ContainerArcaneTablet;
+import com.latmod.mods.projectex.gui.container.ContainerArcaneTablet;
 import io.netty.buffer.ByteBuf;
 import mezz.jei.api.gui.IGuiIngredient;
 import net.minecraft.entity.player.EntityPlayerMP;

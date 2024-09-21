@@ -1,6 +1,7 @@
 package com.latmod.mods.projectex.gui;
 
 import com.latmod.mods.projectex.ProjectEX;
+import com.latmod.mods.projectex.gui.container.ContainerAlchemyTable;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
@@ -31,13 +32,11 @@ public class GuiAlchemyTable extends GuiContainer {
         mc.getTextureManager().bindTexture(TEXTURE);
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
-        if (container.emc > 0) {
+        if (container.emc > 0)
             drawTexturedModalRect(guiLeft + 77, guiTop + 34, 177, 17, Math.max(1, (int) (container.emc / 255F * 24F)), 18);
-        }
 
-        if (container.progress > 0) {
+        if (container.progress > 0)
             drawTexturedModalRect(guiLeft + 78, guiTop + 35, 177, 0, Math.max(1, (int) (container.progress / 255F * 22F)), 16);
-        }
     }
 
     @Override

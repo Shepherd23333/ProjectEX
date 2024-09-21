@@ -1,5 +1,6 @@
 package com.latmod.mods.projectex.tile;
 
+import com.latmod.mods.projectex.ProjectEXUtils;
 import com.latmod.mods.projectex.block.EnumTier;
 import moze_intel.projecte.api.tile.IEmcAcceptor;
 import moze_intel.projecte.gameObjs.tiles.RelayMK1Tile;
@@ -11,6 +12,7 @@ import net.minecraft.util.ITickable;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 
 /**
  * @author LatvianModder
@@ -42,21 +44,21 @@ public class TileCollector extends TileEntity implements ITickable {
                 TileRelay.TEMP[i] = emcAcceptor;
                 tempSize++;
 
-                if (emcAcceptor instanceof TileRelay) {
+                if (emcAcceptor instanceof TileRelay)
                     ((TileRelay) emcAcceptor).addRelayBonus(EnumFacing.VALUES[i].getOpposite());
-                } else if (emcAcceptor instanceof RelayMK3Tile) {
-                    emcAcceptor.acceptEMC(EnumFacing.VALUES[i].getOpposite(), BigInteger.valueOf(10L));
-                } else if (emcAcceptor instanceof RelayMK2Tile) {
-                    emcAcceptor.acceptEMC(EnumFacing.VALUES[i].getOpposite(), BigInteger.valueOf(3L));
-                } else if (emcAcceptor instanceof RelayMK1Tile) {
-                    emcAcceptor.acceptEMC(EnumFacing.VALUES[i].getOpposite(), BigInteger.ONE);
-                }
+                else if (emcAcceptor instanceof RelayMK3Tile)
+                    emcAcceptor.acceptEMC(EnumFacing.VALUES[i].getOpposite(), ProjectEXUtils.getBonus(3));
+                else if (emcAcceptor instanceof RelayMK2Tile)
+                    emcAcceptor.acceptEMC(EnumFacing.VALUES[i].getOpposite(), ProjectEXUtils.getBonus(2));
+                else if (emcAcceptor instanceof RelayMK1Tile)
+                    emcAcceptor.acceptEMC(EnumFacing.VALUES[i].getOpposite(), ProjectEXUtils.getBonus(1));
+
             }
         }
 
         if (tempSize > 0) {
             BigInteger s = EnumTier.byMeta(getBlockMetadata()).properties.getCo()
-                    .divide(BigDecimal.valueOf(tempSize)).toBigInteger();
+                    .divide(BigDecimal.valueOf(tempSize), 0, RoundingMode.FLOOR).toBigInteger();
 
             for (int i = 0; i < 6; i++) {
                 IEmcAcceptor emcAcceptor = TileRelay.TEMP[i];

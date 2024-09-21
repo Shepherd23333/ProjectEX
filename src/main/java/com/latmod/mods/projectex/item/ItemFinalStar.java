@@ -17,6 +17,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -103,6 +104,6 @@ public class ItemFinalStar extends Item implements IItemEmc, IPedestalItem {
     @Override
     @SideOnly(Side.CLIENT)
     public List<String> getPedestalDescription() {
-        return Collections.singletonList(I18n.format("item.projectex.final_star.tooltip"));
+        return Collections.singletonList(TextFormatting.BLUE + I18n.format("item.projectex.final_star.tooltip"));
     }
 }

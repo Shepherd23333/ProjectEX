@@ -1,6 +1,6 @@
 package com.latmod.mods.projectex.net;
 
-import com.latmod.mods.projectex.gui.ContainerTableBase;
+import com.latmod.mods.projectex.gui.container.ContainerTableBase;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;

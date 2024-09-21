@@ -78,13 +78,12 @@ public class ProjectEXConfig {
         @Config.Comment("If set to false, it will remove item NBT.")
         public boolean final_star_copy_nbt = false;
 
-        @Config.Comment("Set to 0 to completely disable itemc copying.")
+        @Config.Comment("Set to 0 to completely disable it's copying.")
         @Config.RangeInt(min = 0)
         public int final_star_update_interval = 10;
 
         @Config.Comment({
                 "Max item that will be displayed.",
-                "0 disables item exporting from links and makes refined ones useless.",
                 "Reduce this if you are having problems with auto-crafting or similar things."
         })
         @Config.RangeInt(min = 1)
@@ -168,10 +167,9 @@ public class ProjectEXConfig {
                         if (s2.isEmpty())
                             continue;
 
-                        for (Map.Entry<String, HashSet<ItemKey>> entry : oreDict.entrySet()) {
+                        for (Map.Entry<String, HashSet<ItemKey>> entry : oreDict.entrySet())
                             if (!entry.getValue().isEmpty() && entry.getKey().startsWith(s2))
                                 stoneTableItemList.addAll(entry.getValue());
-                        }
                     } else {
                         Item item = Item.getByNameOrId(s1[0]);
 
@@ -210,21 +208,21 @@ public class ProjectEXConfig {
     }
 
     public static class Tiers {
-        public final BlockTier basic = new BlockTier(Constants.COLLECTOR_MK1_GEN, ProjectEXUtils.getBonus(1), Constants.RELAY_MK1_OUTPUT);
-        public final BlockTier dark = new BlockTier(Constants.COLLECTOR_MK2_GEN, ProjectEXUtils.getBonus(2), Constants.RELAY_MK2_OUTPUT);
-        public final BlockTier red = new BlockTier(Constants.COLLECTOR_MK3_GEN, ProjectEXUtils.getBonus(3), Constants.RELAY_MK3_OUTPUT);
-        public final BlockTier magenta = new BlockTier(160, 40, 2560);
-        public final BlockTier pink = new BlockTier(640, 150, 10240);
-        public final BlockTier purple = new BlockTier(2560, 750, 40960);
-        public final BlockTier violet = new BlockTier(10240, 3750, 163840);
-        public final BlockTier blue = new BlockTier(40960, 15000, 655360);
-        public final BlockTier cyan = new BlockTier(163840, 60000, 2621440);
-        public final BlockTier green = new BlockTier(655360, 240000, 10485760);
-        public final BlockTier lime = new BlockTier(2621440, 960000, 41943040);
-        public final BlockTier yellow = new BlockTier(10485760, 3840000, 167772160);
-        public final BlockTier orange = new BlockTier(41943040, 15360000, 671088640);
-        public final BlockTier white = new BlockTier(167772160, 61440000, 2684354560D);
-        public final BlockTier fading = new BlockTier(671088640, 245760000, 10737418240D);
+        public final BlockTier basic = new BlockTier(1);
+        public final BlockTier dark = new BlockTier(2);
+        public final BlockTier red = new BlockTier(3);
+        public final BlockTier magenta = new BlockTier(4);
+        public final BlockTier pink = new BlockTier(5);
+        public final BlockTier purple = new BlockTier(6);
+        public final BlockTier violet = new BlockTier(7);
+        public final BlockTier blue = new BlockTier(8);
+        public final BlockTier cyan = new BlockTier(9);
+        public final BlockTier green = new BlockTier(10);
+        public final BlockTier lime = new BlockTier(11);
+        public final BlockTier yellow = new BlockTier(12);
+        public final BlockTier orange = new BlockTier(13);
+        public final BlockTier white = new BlockTier(14);
+        public final BlockTier fading = new BlockTier(15);
         public final BlockTier final_tier = new BlockTier(1000000000000D, 1000000000000D, Double.MAX_VALUE);
     }
 
@@ -241,16 +239,17 @@ public class ProjectEXConfig {
         @Config.RangeDouble(min = 1D)
         public double relay_transfer;
 
+        public BlockTier(int level) {
+            BigInteger t = ProjectEXUtils.getBonus(level);
+            collector_output = Constants.COLLECTOR_MK1_GEN.multiply(t).doubleValue();
+            relay_bonus = t.doubleValue();
+            relay_transfer = Constants.RELAY_MK1_OUTPUT.multiply(t).doubleValue();
+        }
+
         public BlockTier(double col, double rbs, double rtf) {
             collector_output = col;
             relay_bonus = rbs;
             relay_transfer = rtf;
-        }
-
-        public BlockTier(BigInteger col, BigInteger rbs, BigInteger rtf) {
-            collector_output = col.doubleValue();
-            relay_bonus =rbs.doubleValue();
-            relay_transfer = rtf.doubleValue();
         }
 
         public BigDecimal getCo() {

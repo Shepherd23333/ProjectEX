@@ -2,6 +2,7 @@ package com.latmod.mods.projectex.client;
 
 import com.latmod.mods.projectex.ProjectEX;
 import com.latmod.mods.projectex.ProjectEXConfig;
+import com.latmod.mods.projectex.block.EnumFuel;
 import com.latmod.mods.projectex.block.EnumMatter;
 import com.latmod.mods.projectex.block.EnumTier;
 import com.latmod.mods.projectex.integration.PersonalEMC;
@@ -48,14 +49,22 @@ public class ProjectEXClientEventHandler {
             addModel(ProjectEXItems.TRANSMUTATION_INTERFACE, "normal");
         }
 
-        for (EnumTier tier : EnumTier.VALUES) {
-            if (ProjectEXConfig.items.collectors) {
-                ModelLoader.setCustomModelResourceLocation(ProjectEXItems.COLLECTOR, tier.ordinal(), new ModelResourceLocation(ProjectEXItems.COLLECTOR.getRegistryName(), "tier=" + tier.getName()));
-            }
+        addModel(ProjectEXItems.COLLECTOR_MK4, "inventory");
+        addModel(ProjectEXItems.COLLECTOR_MK5, "inventory");
+        addModel(ProjectEXItems.COLLECTOR_MK6, "inventory");
+        addModel(ProjectEXItems.COLLECTOR_MK7, "inventory");
+        addModel(ProjectEXItems.COLLECTOR_MK8, "inventory");
+        addModel(ProjectEXItems.COLLECTOR_MK9, "inventory");
+        addModel(ProjectEXItems.COLLECTOR_MK10, "inventory");
+        addModel(ProjectEXItems.COLLECTOR_MK11, "inventory");
+        addModel(ProjectEXItems.COLLECTOR_MK12, "inventory");
 
-            if (ProjectEXConfig.items.relays) {
+        for (EnumTier tier : EnumTier.VALUES) {
+            if (ProjectEXConfig.items.collectors)
+                ModelLoader.setCustomModelResourceLocation(ProjectEXItems.COLLECTOR, tier.ordinal(), new ModelResourceLocation(ProjectEXItems.COLLECTOR.getRegistryName(), "tier=" + tier.getName()));
+
+            if (ProjectEXConfig.items.relays)
                 ModelLoader.setCustomModelResourceLocation(ProjectEXItems.RELAY, tier.ordinal(), new ModelResourceLocation(ProjectEXItems.RELAY.getRegistryName(), "tier=" + tier.getName()));
-            }
 
             if (ProjectEXConfig.items.power_flowers) {
                 ModelLoader.setCustomModelResourceLocation(ProjectEXItems.COMPRESSED_COLLECTOR, tier.ordinal(), new ModelResourceLocation(ProjectEXItems.COLLECTOR.getRegistryName(), "tier=" + tier.getName()));
@@ -63,13 +72,11 @@ public class ProjectEXClientEventHandler {
             }
         }
 
-        if (ProjectEXConfig.items.stone_table) {
+        if (ProjectEXConfig.items.stone_table)
             addModel(ProjectEXItems.STONE_TABLE, "facing=down");
-        }
 
-        if (ProjectEXConfig.items.alchemy_table) {
+        if (ProjectEXConfig.items.alchemy_table)
             addModel(ProjectEXItems.ALCHEMY_TABLE, "normal");
-        }
 
         if (ProjectEXConfig.items.stars) {
             addModel(ProjectEXItems.MAGNUM_STAR_EIN, "inventory");
@@ -86,27 +93,24 @@ public class ProjectEXClientEventHandler {
             addModel(ProjectEXItems.COLOSSAL_STAR_OMEGA, "inventory");
         }
 
-        for (EnumMatter matter : EnumMatter.VALUES) {
-            ModelLoader.setCustomModelResourceLocation(ProjectEXItems.MATTER, matter.ordinal(), new ModelResourceLocation(ProjectEX.MOD_ID + ":matter/" + matter.getName() + "#inventory"));
-        }
+        for (EnumFuel fuel : EnumFuel.VALUES)
+            ModelLoader.setCustomModelResourceLocation(ProjectEXItems.FUEL, fuel.ordinal(), new ModelResourceLocation(ProjectEX.MOD_ID + ":fuel/" + fuel.getName() + "#inventory"));
 
-        if (ProjectEXConfig.items.clay_matter) {
+        for (EnumMatter matter : EnumMatter.VALUES)
+            ModelLoader.setCustomModelResourceLocation(ProjectEXItems.MATTER, matter.ordinal(), new ModelResourceLocation(ProjectEX.MOD_ID + ":matter/" + matter.getName() + "#inventory"));
+        if (ProjectEXConfig.items.clay_matter)
             ModelLoader.setCustomModelResourceLocation(ProjectEXItems.CLAY_MATTER, 0, new ModelResourceLocation(ProjectEX.MOD_ID + ":matter/clay#inventory"));
-        }
 
         addModel(ProjectEXItems.FINAL_STAR_SHARD, "inventory");
 
-        if (ProjectEXConfig.items.final_star) {
+        if (ProjectEXConfig.items.final_star)
             addModel(ProjectEXItems.FINAL_STAR, "inventory");
-        }
 
-        if (ProjectEXConfig.items.knowledge_sharing_book) {
+        if (ProjectEXConfig.items.knowledge_sharing_book)
             addModel(ProjectEXItems.KNOWLEDGE_SHARING_BOOK, "inventory");
-        }
 
-        if (ProjectEXConfig.items.arcane_tablet) {
+        if (ProjectEXConfig.items.arcane_tablet)
             addModel(ProjectEXItems.ARCANE_TABLET, "inventory");
-        }
     }
 
     @SubscribeEvent

@@ -2,8 +2,9 @@
 
 A fork of [ProjectEX](https://github.com/FTBTeam/FTB-ProjectEX), based on ProjectEu.
 
-With some breaking changes, it doesn't have any compatibility.
+It may break the compatibility.
 
 ## New features
 
 * Transmutation Interface(from [Project Expansion](https://github.com/DonovanDMC/ProjectExpansion))
+* more fuels and Energy Collectors
